@@ -1,0 +1,43 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    ingress.kubernetes.io/auth-signin: https://www.{ DOMAIN }/oauth2/start
+    ingress.kubernetes.io/auth-url: https://www.{ DOMAIN }/oauth2/auth
+spec:
+  tls:
+  - hosts:
+    - www.{ DOMAIN } 
+    secretName: tls-secret
+  rules:
+  - host: www.{ DOMAIN }
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: webserver
+          servicePort: 80
+      - path: /echo
+        backend:
+          serviceName: echo-server
+          servicePort: 8080
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: oauth2-proxy
+spec:
+  tls:
+  - hosts:
+    - www.{ DOMAIN } 
+    secretName: tls-secret
+  rules:
+  - host: www.{ DOMAIN } 
+    http:
+      paths:
+      - backend:
+          serviceName: oauth2-proxy
+          servicePort: 4180
+        path: /oauth2
