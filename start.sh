@@ -1,7 +1,7 @@
 #!/bin/sh
 
 DOMAIN=$1
-if [ -z "$DOMAIN"]; then
+if [ -z "$DOMAIN" ]; then
    echo "Usage: start.sh <domain>"
    exit 1;
 fi
