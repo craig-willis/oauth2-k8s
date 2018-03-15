@@ -27,9 +27,9 @@ To stop:
 
 ## How to test:
 
-* http://<domain>/: Displays default nginx webserver welcome page
-* http://<domain>/echo: Calls the echo server directly
-* http://<domain>/oauth2/echo: Calls the echo server via oauth2, redirects for Github authentication, prints request with oauth information 
+* `http://<domain>/`: Displays default nginx webserver welcome page
+* `http://<domain>/echo`: Calls the echo server directly
+* `http://<domain>/oauth2/echo`: Calls the echo server via oauth2, redirects for Github authentication, prints request with oauth information 
 
 ### Echo server (no oauth proxy)
 ```
