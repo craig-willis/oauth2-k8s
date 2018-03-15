@@ -19,9 +19,9 @@ To stop:
 ## What it does
 
 * Generates self-signed TLS certs and creates a secret
-* Starts a simply nginx webserver (/)
+* Starts a simple nginx webserver (/)
 * Starts a simple echoserver (/echo)
-* Starts oauth2_proxy (/oauth2) with upstream pointing to echoserver
+* Starts oauth2_proxy (/oauth2) with upstream also pointing to echoserver
 * Creates ingress rules for each of the above
 * Starts nginx ingress load balancer
 
